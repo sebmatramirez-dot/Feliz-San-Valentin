@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>sv</title>
+
+<style>
+@font-face {
+  font-family: 'Caudex';
+  src: url('fonts/Caudex-Regular.ttf');
+}
+@font-face {
+  font-family: 'CaudexItalic';
+  src: url('fonts/Caudex-Italic.ttf');
+}
+@font-face {
+  font-family: 'CaudexBold';
+  src: url('fonts/Caudex-Bold.ttf');
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #000 url("images/bg.jpg") repeat;
+  font-family: 'Caudex';
+  color: #e6e6e6;
+}
+
+/* ========== LOADER OLD INTERNET ========== */
+#old-loader {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 9999;
+  color: red;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: hideLoader 6s forwards;
+}
+
+.loader-text {
+  font-size: 14px;
+  animation: blink 1s steps(1) infinite;
+}
+
+.progress {
+  margin-top: 14px;
+  width: 200px;
+  height: 12px;
+  border: 1px solid red;
+}
+.bar {
+  height: 100%;
+  width: 0%;
+  background: red;
+  animation: loadBar 5.5s steps(6) forwards;
+}
+
+.fake-status {
+  margin-top: 10px;
+  font-size: 11px;
+  text-align: center;
+}
+
+@keyframes loadBar { to { width: 100%; } }
+@keyframes blink { 50% { opacity: 0; } }
+@keyframes hideLoader {
+  0%,85% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; }
+}
+
+/* ========== PERFIL ========== */
+#profile {
+  width: 950px;
+  margin: 30px auto;
+  background: #0b0000;
+  border: 3px double #660000;
+  box-shadow: 0 0 25px #550000;
+  padding: 12px;
+}
+
+/* HEADER */
+#header {
+  display: flex;
+  gap: 15px;
+  border-bottom: 2px solid #550000;
+  padding-bottom: 12px;
+}
+
+#pfp {
+  width: 170px;
+  height: 170px;
+  border: 2px solid #880000;
+}
+#pfp img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#user h1 {
+  margin: 0;
+  font-family: 'CaudexBold';
+  color: #ffb3b3;
+  text-shadow: 0 0 6px #ff0000;
+}
+.status {
+  margin-top: 6px;
+  font-family: 'CaudexItalic';
+  color: #ff8080;
+}
+
+/* LAYOUT */
+#content {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* BOXES */
+.box {
+  background: rgba(20,0,0,0.85);
+  border: 2px solid #550000;
+  padding: 8px;
+  margin-bottom: 12px;
+}
+.box h2 {
+  margin: 0 0 6px;
+  font-size: 15px;
+  color: #ff9999;
+  border-bottom: 1px solid #550000;
+}
+
+/* MOOD GIF */
+.mood img {
+  width: 220px;
+  display: block;
+  margin: 10px auto;
+  filter: drop-shadow(0 0 6px #550000);
+}
+
+/* SCANLINES */
+.scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.03) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+}
+
+/* Blink link */
+@keyframes blinkAnim {
+  50% { opacity: 0; }
+}
+.blink-link {
+  color: #ff0000;
+  font-weight: bold;
+  text-decoration: underline;
+  animation: blinkAnim 1s infinite;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="old-loader">
+  <div class="loader-text">LOADING PROFILE...</div>
+  <div class="progress"><div class="bar"></div></div>
+  <div class="fake-status">
+    dialing...<br>
+    loading glitter gifs...<br>
+    please wait
+  </div>
+</div>
+
+<!-- PERFIL -->
+<div id="profile">
+
+<div id="header">
+  <div id="pfp"><img src="images/pfp.jfif"></div>
+  <div id="user">
+    <h1>Para ti</h1>
+    <div class="status">online</div>
+  </div>
+</div>
+
+<div id="content">
+
+<!-- SIDEBAR -->
+<div>
+
+<div class="box">
+  <h2>Music</h2>
+
+  <div style="
+    background:#0a0000;
+    border:2px solid #550000;
+    padding:6px;
+    box-shadow: 0 0 10px #550000 inset;
+  ">
+    <iframe
+      src="https://open.spotify.com/embed/playlist/3zBWzH0GmeusN5jUsfGw6i"
+      width="100%"
+      height="380"
+      frameborder="0"
+      allow="encrypted-media"
+      style="background:black;">
+    </iframe>
+
+    <div style="
+      text-align:center;
+      font-family:'CaudexItalic';
+      font-size:12px;
+      color:#aa4444;
+      margin-top:6px;
+    ">
+      This is about you
+    </div>
+  </div>
+</div>
+
+
+<div class="box mood">
+<h2>Mood</h2>
+<img src="https://media.everskies.com/Sf4DpjRKYqtN6UEcrDM_.gif">
+</div>
+
+</div>
+
+<!-- MAIN -->
+<div>
+
+<div class="box">
+  <h2>About Me</h2>
+
+  <img 
+    src="https://64.media.tumblr.com/2213cb8d339100c53d6f7f2de59abd01/e6482d172fd5f133-00/s500x750/dd66bfd84c0990e0f465aac25c504372b4d03824.gifv"
+    style="max-width:100%; display:block; margin:10px auto; border:1px solid #550000; box-shadow:0 0 12px #550000;"
+  />
+
+  <p style="margin-top:12px; line-height:1.6; text-align:center;">
+    <span style="font-family:'CaudexBold'; color:#ffb3b3; font-size:18px;">
+      Feliz San Valentín, mi reina bella.
+    </span>
+    <br><br>
+    Lamento que hoy no podamos disfrutar este día como nos gustaría,
+    pero voy a asegurarme de hacer todo lo posible para que algún día
+    podamos estar juntos de verdad.
+    <br><br>
+    Para poder abrazarte, para poder darte lo que mereces,
+    para poder amarte como mereces ser amada.
+    <br><br>
+    <span style="font-family:'CaudexItalic'; color:#ff8080;">
+      Incluso en la distancia siempre eres tú.
+    </span>
+  </p>
+</div>
+
+<div class="box">
+  <h2>Comments</h2>
+
+  <div style="display:flex; gap:10px; background:#0d0000; border:1px solid #550000; padding:10px; margin-top:10px; font-size:14px; color:#ff6666;">
+    <img src="images/thedude.png" style="width:60px; height:60px; object-fit:cover; border:1px solid #550000;">
+
+    <div>
+      <strong style="color:#ff8080;">xX_TheDude_Xx</strong>
+      <span style="font-size:11px; color:#aa4444;"> · 1 hour ago</span>
+      <br><br>
+      Hey tú, ¿quieres juegos gratis? Firma mi petición.
+      <br><br>
+      <a href="https://drive.google.com/file/d/1TzNiOnfZyl0urGPIy23ryqWI8C5EKziV/view?usp=sharing"
+         target="_blank"
+         class="blink-link">
+         Firmar
+      </a>
+      <div style="font-size:11px; color:#883333; margin-top:6px;">
+        Reply · Like · Report
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
+<div class="scanlines"></div>
+
+<!-- BAT RAIN -->
+<div class="bat-rain">
+  <div class="bat"><img src="https://64.media.tumblr.com/c976c1f0110dff524dead5bde74dd5df/09b0656ab042c182-ac/s75x75_c1/888d378a91f5776307c5c5633ed9c5c7e094b4e5.gifv"></div>
+</div>
+
+<style>
+.bat-rain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.bat-rain.show { opacity: 1; }
+.bat {
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  animation: bats-fall 12s linear infinite;
+}
+.bat img { width: 40px; }
+
+@keyframes bats-fall {
+  from { top: -10%; }
+  to   { top: 110%; }
+}
+</style>
+
+<script>
+setTimeout(() => {
+  document.querySelector('.bat-rain').classList.add('show');
+}, 6000);
+</script>
+
+</body>
+</html>
