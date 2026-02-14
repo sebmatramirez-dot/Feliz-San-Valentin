@@ -299,6 +299,11 @@ body {
 <!-- BAT RAIN -->
 <div class="bat-rain">
   <div class="bat"><img src="https://64.media.tumblr.com/c976c1f0110dff524dead5bde74dd5df/09b0656ab042c182-ac/s75x75_c1/888d378a91f5776307c5c5633ed9c5c7e094b4e5.gifv"></div>
+  <div class="bat"><img src="https://64.media.tumblr.com/c976c1f0110dff524dead5bde74dd5df/09b0656ab042c182-ac/s75x75_c1/888d378a91f5776307c5c5633ed9c5c7e094b4e5.gifv"></div>
+  <div class="bat"><img src="https://64.media.tumblr.com/c976c1f0110dff524dead5bde74dd5df/09b0656ab042c182-ac/s75x75_c1/888d378a91f5776307c5c5633ed9c5c7e094b4e5.gifv"></div>
+  <div class="bat"><img src="https://64.media.tumblr.com/c976c1f0110dff524dead5bde74dd5df/09b0656ab042c182-ac/s75x75_c1/888d378a91f5776307c5c5633ed9c5c7e094b4e5.gifv"></div>
+  <div class="bat"><img src="https://64.media.tumblr.com/c976c1f0110dff524dead5bde74dd5df/09b0656ab042c182-ac/s75x75_c1/888d378a91f5776307c5c5633ed9c5c7e094b4e5.gifv"></div>
+  <div class="bat"><img src="https://64.media.tumblr.com/c976c1f0110dff524dead5bde74dd5df/09b0656ab042c182-ac/s75x75_c1/888d378a91f5776307c5c5633ed9c5c7e094b4e5.gifv"></div>
 </div>
 
 <style>
@@ -310,18 +315,38 @@ body {
   opacity: 0;
   transition: opacity 1.2s ease;
 }
-.bat-rain.show { opacity: 1; }
+
+.bat-rain.show {
+  opacity: 1;
+}
+
 .bat {
   position: absolute;
   top: -10%;
-  left: 50%;
-  animation: bats-fall 12s linear infinite;
+  animation: bats-fall 12s linear infinite,
+             bats-sway 4s ease-in-out infinite;
 }
-.bat img { width: 40px; }
+
+.bat img {
+  width: 40px;
+  opacity: 0.9;
+}
+
+/* posiciones distintas */
+.bat:nth-child(1) { left: 5%;  animation-delay: 0s; }
+.bat:nth-child(2) { left: 20%; animation-delay: 2s; }
+.bat:nth-child(3) { left: 35%; animation-delay: 5s; }
+.bat:nth-child(4) { left: 55%; animation-delay: 1s; }
+.bat:nth-child(5) { left: 70%; animation-delay: 4s; }
+.bat:nth-child(6) { left: 85%; animation-delay: 7s; }
 
 @keyframes bats-fall {
   from { top: -10%; }
   to   { top: 110%; }
+}
+
+@keyframes bats-sway {
+  50% { transform: translateX(60px); }
 }
 </style>
 
@@ -331,5 +356,7 @@ setTimeout(() => {
 }, 6000);
 </script>
 
+
 </body>
 </html>
+
